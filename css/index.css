@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  background-image: url("../images/background.jpg");
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Style the top navigation bar */
+.topnav {
+    display: block;
+    float: center;
+    text-align: center;
+    padding: 14px 16px;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+
+}
+
+/* Style the topnav links */
+
+.topnav a {
+	font-family: "Comic Sans MS";
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    font-family: "Comic Sans MS";
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+
+/* Style the content */
+.content  h2{
+	margin-top: 70px;
+    font-family: "Lobster", Sans-serif;
+    font-size: 80px;
+    text-align: center;
+    float: center;
+}
+
+/* Style the footer */
+.footer {
+    background-color: white;
+    width:100%;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    bottom:0;
+    position:absolute;
+}
+
+.footer p1 {
+    float: left;
+    font-family: "Comic Sans MS";
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.footer p2 {
+    float: right;
+    font-family: "Comic Sans MS";
+    text-decoration: none;
+    font-size: 20px;
+}
