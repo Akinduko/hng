@@ -121,7 +121,8 @@ $(document).ready(function(){
 <div class="topnav">
 <p id="panel">
 <?php
-$username = "devgeaks";
+require 'db.php';
+$username = "dev_geaks";
 $data = $conn->query("SELECT * FROM  interns_data_ WHERE username = '".$username."' ");
 $my_data = $data->fetch(PDO::FETCH_BOTH);
 $name = $my_data['name'];
