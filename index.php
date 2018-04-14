@@ -1,3 +1,10 @@
+<?php
+require 'db.php';
+$query = $conn->query("SELECT * FROM secret_word");
+$result = $query->fetch(PDO::FETCH_ASSOC);
+$secret_word = $result['secret_word'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -114,10 +121,6 @@ $(document).ready(function(){
 <div class="topnav">
 <p id="panel">
 <?php
-require 'db.php';
-$query = $conn->query("SELECT * FROM secret_word");
-$result = $query->fetch(PDO::FETCH_ASSOC);
-$secret_word = $result['secret_word'];
 $username = "devgeaks";
 $data = $conn->query("SELECT * FROM  interns_data_ WHERE username = '".$username."' ");
 $my_data = $data->fetch(PDO::FETCH_BOTH);
@@ -127,8 +130,8 @@ $username =$my_data['username'];
 ?>
   <img src= "<?php echo $img;?>" style="width:100%; height:100px;" alt=""/>
   <br/>
-  <name>name:<?php echo $name;?></name><br/>
-  <username>slack: @<?php echo $username;?</username> 
+  <name>name: <?php echo $name;?></name><br/>
+  <username>slack:@ <?php echo $username;?</username> 
 </p>
 
 <button id="flip"><img src="images/if_menu-alt_134216.png" style="width:40px; height:25px;" alt=""/></button>
