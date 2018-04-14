@@ -28,7 +28,7 @@
 <div class="footer">
   <p1>designed by: devgeaks.club</p1>
   <p2><?php
-  	date_default_timezone_set("Lagos/Africa");
+  	date_default_timezone_set("Africa/Lagos");
 	echo  "Today is " . date("l"). ", ". date("Y/m/d") . "     and time is " . date("h:i"). " WAT";
 ?></p2>
 </div>
