@@ -132,7 +132,7 @@ $username =$my_data['username'];
   <img src= "<?php echo $img;?>" style="width:100%; height:100px;" alt=""/>
   <br/>
   <name>name: <?php echo $name;?></name><br/>
-  <username>slack:@ <?php echo $username;?</username> 
+  <username>slack:@ <?php echo $username;?></username> 
 </p>
 
 <button id="flip"><img src="images/if_menu-alt_134216.png" style="width:40px; height:25px;" alt=""/></button>
