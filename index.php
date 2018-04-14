@@ -113,10 +113,22 @@ $(document).ready(function(){
 <body>
 <div class="topnav">
 <p id="panel">
-  <img src="http://res.cloudinary.com/devgeaks/image/upload/v1523731563/2017-03-02_08.30.03.jpg" style="width:100%; height:100px;" alt=""/>
+<?php
+require 'db.php';
+$query = $conn->query("SELECT * FROM secret_word");
+$result = $query->fetch(PDO::FETCH_ASSOC);
+$secret_word = $result['secret_word'];
+$username = "devgeaks";
+$data = $conn->query("SELECT * FROM  interns_data_ WHERE username = '".$username."' ");
+$my_data = $data->fetch(PDO::FETCH_BOTH);
+$name = $my_data['name'];
+$img = $my_data['image_filename'];
+$username =$my_data['username'];
+?>
+  <img src= "<?php echo $img;?>" style="width:100%; height:100px;" alt=""/>
   <br/>
-  <name>name: Akinduko Olugbenga</name><br/>
-  <username>Username: @dev_geak</username> 
+  <name>name:<?php echo $name;?></name><br/>
+  <username>slack: @<?php echo $username;?</username> 
 </p>
 
 <button id="flip"><img src="images/if_menu-alt_134216.png" style="width:40px; height:25px;" alt=""/></button>
