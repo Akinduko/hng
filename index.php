@@ -28,7 +28,7 @@
 <div class="footer">
   <p1>designed by: devgeaks.club</p1>
   <p2><?php
-echo  "Today is " . date("l"). ",". date("Y/m/d") . "     The time is " . date("h:i"). " WAT";
+echo  "Today is " . date("l"). ", ". date("Y/m/d") . "     and time is " . date("h:i"). " WAT";
 ?></p2>
 </div>
 
