@@ -96,7 +96,7 @@ body {
 /* Style the footer */
 .footer {
     background-color: white;
-    width:auto;
+    width:100%;
     opacity: 0.5;
     filter: alpha(opacity=50);
     bottom:0;
