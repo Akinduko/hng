@@ -160,8 +160,9 @@ $username =$my_data['username'];
 </div>  
     <form action="index.php" method="post">
     Input:&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="name"><br>
+    Answer: <?php $name=$_GET["name"]; echo $name; ?>
     <input type="submit"><br>
-    Answer: <?php echo $_GET["name"]; ?>
+    
    </form>
 
 
