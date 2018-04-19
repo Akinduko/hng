@@ -13,6 +13,7 @@
 		'whoami',
 		'git reset --hard HEAD',
 		'git pull',
+		'git status',
 		'git submodule sync',
 		'git submodule update',
 		'git submodule status',
@@ -21,7 +22,7 @@
 	$output = '';
 	foreach($commands AS $command){
 		// Run it
-		$tmp = shell_exec($command);
+		$tmp = shell_exec('git pull');
 		// Output
 		$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
 		$output .= htmlentities(trim($tmp)) . "\n";
