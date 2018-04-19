@@ -3,7 +3,7 @@
 require_once 'config.php';
 
 try {
-    $conn = new PDO('mysql:host=10.11.0.218;dbname=porte;port=3307','porte','3x0du5P@55w0rd');
+    $conn = new PDO('mysql:host=127.0.0.1;dbname=hng;port=3306','root','4k1nduk1');
     // echo "Connected to ". DB_DATABASE . " successfully.</br>";
 } catch (PDOException $pe) {
     die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());

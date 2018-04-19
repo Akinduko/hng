@@ -1,9 +1,7 @@
 <?php
-define ('DB_USER', "porte");
-define ('DB_PASSWORD', "3x0du5P@55w0rd");
-define ('DB_DATABASE', "porte");
-define ('DB_HOST', "10.11.0.218");
-define ('DB_PORT', "3307");
-
-
+define ('DB_USER', "root");
+define ('DB_PASSWORD', "4k1nduk1");
+define ('DB_DATABASE', "hng");
+define ('DB_HOST', "127.0.0.1");
+define ('DB_PORT', "3306");
 ?>
