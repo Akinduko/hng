@@ -54,7 +54,9 @@ function decifer($string){
 
 
 function assistant($string)
-{    $reply = "";
+ {  
+    $reply = "";
+    
     if ($string == 'what is the capital of Lagos') {
       $reply =var_export('The capital of Lagos is Ikeja');
       return $reply;
@@ -162,11 +164,10 @@ function assistant($string)
       $reply =var_export('The capital of Nasarawa is Lafia');
       return $reply;     
     }
-    else{
+    else {
         $reply = "Please enter a valid question";
         return $reply;
     }
-  
 }
 
 $existError =false;
@@ -264,8 +265,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
  
 
 }
-else{
-  
+    else{
+       echo "I am not trained to answer this question, please rephrase or train me to answer correctly";
+    }  
 ?>
 
 <!DOCTYPE html>
