@@ -164,7 +164,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   if($reply =="") {
 
     $post= $_POST['msg'];
-    $result = decider($post);
+    $result = decifer($post);
     if($result){
       $question=$result[0]; 
       $answer= $result[1];
@@ -244,7 +244,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 }
     else{
-       echo "I am not trained to answer this question, please rephrase or train me to answer correctly";
+       echo "";
     }  
 ?>
 
@@ -613,7 +613,7 @@ a:focus {
             
             $ip=$_SERVER['REMOTE_ADDR'];
             $reply = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$ip));
-            echo var_export('you are in '. $reply['geoplugin_countryName'] .' in '. $reply['geoplugin_regionName']);
+            echo var_export('Glad to have a vistor from '. $reply['geoplugin_regionName'] .','.$reply['geoplugin_countryName'] );
             ?></span>
                         
                       </span>
@@ -682,7 +682,7 @@ a:focus {
             setTimeout(function(){
                      $(' <div class="messages clear"><span class="avatar"><img src="https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/LJ/HLJ02/HLJ02?wid=572&hei=572&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1503083822390"/></span><div class="sender"><div class="message-container"><div class="message"><p>'+response+'</p></div><span class="delivered"><?php
             echo "" . date("h:i:a");
-            ?></span></div><!-- /.message-container -</div><!-- /.sender --></div><!-- /.messages --></div>').insertBefore('.push');
+            ?></span></div>').insertBefore('.push');
                   $('.chatbox-messages').scrollTop($('.chatbox-messages')[0].scrollHeight);
                   play();
                 },  1000);
