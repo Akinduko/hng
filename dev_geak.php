@@ -152,8 +152,8 @@ $existError =false;
 $reply = "";//process starts
 if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
 
-  if ($_POST['msg'] == 'commands') {
-    $reply = 'These are my commands <p>what is the capital of State(e.g. Lagos) for compound names separate with a dash e.g Ado-Ekiti</p>';
+  if ($_POST['msg'] == 'Help') {
+    $reply = 'These is a sample format of a question <p>what is the capital of Lagos</br>For compound names separate with a dash </br>e.g what is the capital of Ado-Ekiti</p>';
     echo $reply;
   } 
       if($reply==""){
