@@ -1,36 +1,14 @@
 <?php
-
- include_once("../answers.php"); 
-
-if (!defined('DB_USER')){
-            
-  require "../../config.php";
-}
-try {
-  $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
-} catch (PDOException $pe) {
-  die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
-}
-
- global $conn;
-
- try {
-  $sql = 'SELECT * FROM secret_word LIMIT 1';
-  $q = $conn->query($sql);
-  $q->setFetchMode(PDO::FETCH_ASSOC);
-  $data = $q->fetch();
-  $secret_word = $data['secret_word'];
-} catch (PDOException $e) {
-  throw $e;
-}    
-try {
-  $sql = "SELECT * FROM interns_data WHERE `username` = 'dev_gb' LIMIT 1";
-  $q = $conn->query($sql);
-  $q->setFetchMode(PDO::FETCH_ASSOC);
-  $my_data = $q->fetch();
-} catch (PDOException $e) {
-  throw $e;
-}
+require 'db.php';
+$query = $conn->query("SELECT * FROM secret_word");
+$result = $query->fetch(PDO::FETCH_ASSOC);
+$secret_word = $result['secret_word'];
+$username = "dev_geaks";
+$data = $conn->query("SELECT * FROM  interns_data WHERE username = '".$username."' LIMIT 1 ");
+$my_data = $data->fetch(PDO::FETCH_BOTH);
+$name = $my_data['name'];
+$img = $my_data['image_filename'];
+$username =$my_data['username'];
 
 function decifer($string){
   
