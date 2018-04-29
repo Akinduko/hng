@@ -1,3 +1,273 @@
+<?php
+
+ include_once("../answers.php"); 
+
+if (!defined('DB_USER')){
+            
+  require "../../config.php";
+}
+try {
+  $conn = new PDO("mysql:host=". DB_HOST. ";dbname=". DB_DATABASE , DB_USER, DB_PASSWORD);
+} catch (PDOException $pe) {
+  die("Could not connect to the database " . DB_DATABASE . ": " . $pe->getMessage());
+}
+
+ global $conn;
+
+ try {
+  $sql = 'SELECT * FROM secret_word LIMIT 1';
+  $q = $conn->query($sql);
+  $q->setFetchMode(PDO::FETCH_ASSOC);
+  $data = $q->fetch();
+  $secret_word = $data['secret_word'];
+} catch (PDOException $e) {
+  throw $e;
+}    
+try {
+  $sql = "SELECT * FROM interns_data WHERE `username` = 'dev_gb' LIMIT 1";
+  $q = $conn->query($sql);
+  $q->setFetchMode(PDO::FETCH_ASSOC);
+  $my_data = $q->fetch();
+} catch (PDOException $e) {
+  throw $e;
+}
+
+function decifer($string){
+  
+  if (strpos($string, ":") !== false)
+  {
+    $field = explode (":", $string, 2);
+    $key = $field[0];
+    $key = strtolower(preg_replace('/\s+/', '', $key));
+  if(($key == "train")){
+     $password ="password";
+     $trainer =$field[1];
+     $result = explode ("#", $trainer);
+  if($result[2] && $result[2] == $password){
+    echo"<br>Training mode<br>";
+    return $result;
+  } 
+  else echo "opssss!!! Looks like you are trying to train me without permission";   
+  }
+   }
+}
+
+
+function assistant($string)
+{    $reply = "";
+    if ($string == 'what is the capital of Lagos') {
+      $reply =var_export('The capital of Lagos is Ikeja');
+      return $reply;
+        
+    }
+    elseif ($string == 'what is the capital of Ogun') {
+      $reply =var_export('The capital of Ogun is Abeokuta');
+      return $reply;
+        
+    }
+    elseif ($string == 'what is the capital of Oyo') {
+      $reply =var_export('The capital of Oyo is Ibadan');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Ondo') {
+      $reply =var_export('The capital of Ondo is Akure');
+      return $reply;     
+    }
+   elseif ($string == 'what is the capital of Imo') {
+       
+      $reply =var_export('The capital of Imo is Owerri');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Akwa-Ibom') { 
+      $reply =var_export('The capital of Akwa-Ibom is Uyo');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Adamawa') { 
+      $reply =var_export('The capital of Adamawa is Yola');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Ekiti') { 
+      $reply =var_export('The capital of Ekiti is Ado-Ekiti');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Bauchi') { 
+      $reply =var_export('The capital of Bauchi is Bauchi');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Bayelsa') { 
+      $reply =var_export('The capital of Bayelsa is Yenagoa');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Abia') { 
+      $reply =var_export('The capital of Abia is Umuahia');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Anambra') { 
+      $reply =var_export('The capital of Anambra is Awka');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Borno') { 
+      $reply =var_export('The capital of Borno is Maiduguiri');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Cross-River') { 
+      $reply =var_export('The capital of Cross-River is Calabar');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Delta') { 
+      $reply =var_export('The capital of Delta is Asaba');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Benue') { 
+      $reply =var_export('The capital of Benue is Makurdi');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Edo') { 
+      $reply =var_export('The capital of Edo is Benin');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Enugu') { 
+      $reply =var_export('The capital of Enugu is Enugu');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Kebbi') { 
+      $reply =var_export('The capital of Kebbi is Birnin Kebbi');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Katsina') { 
+      $reply =var_export('The capital of Katsina is Katsina');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Kano') { 
+      $reply =var_export('The capital of Kano is Kano');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Kaduna') { 
+      $reply =var_export('The capital of Kaduna is Kaduna');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Jigawa') { 
+      $reply =var_export('The capital of Dutse is Dutse');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Kwara') { 
+      $reply =var_export('The capital of Kwara is Ilorin');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Gombe') { 
+      $reply =var_export('The capital of Gombe is Gombe');
+      return $reply;     
+    }
+    elseif ($string == 'what is the capital of Nasarawa') { 
+      $reply =var_export('The capital of Nasarawa is Lafia');
+      return $reply;     
+    }
+    else{
+        $reply = "Please enter a valid question";
+        return $reply;
+    }
+  
+}
+
+$existError =false;
+$reply = "";//process starts
+if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
+
+  if ($_POST['msg'] == 'commands') {
+    $reply = 'These are my commands <p>what is the capital of State(e.g. Lagos) for compound names separate with a dash e.g Ado-Ekiti</p>';
+    echo $reply;
+  } 
+      if($reply==""){
+       $reply = assistant($_POST['msg']);
+       echo $reply;
+       
+     }
+  if($reply =="") {
+
+    $post= $_POST['msg'];
+    $result = decider($post);
+    if($result){
+      $question=$result[0]; 
+      $answer= $result[1];
+      $sql = "SELECT * FROM chatbot WHERE question = '$question' And answer = '$answer'";
+      $stm = $conn->query($sql);
+      $stm->setFetchMode(PDO::FETCH_ASSOC);
+
+      $result = $stm->fetchAll();
+        
+        if (count(($result))> 0) {
+              
+          // while($result) {
+          //   $strippedQ = strtolower(preg_replace('/\s+/', '', $question));
+          //   $strippedA = strtolower(preg_replace('/\s+/', '', $answer));
+          //   $strippedRowQ = strtolower(preg_replace('/\s+/', '', $result['question']));
+          //   $strippedRowA = strtolower(preg_replace('/\s+/', '', $result['answer']));
+          //   if(($strippedRowQ == $strippedQ) && ($strippedRowA == $strippedA)){
+          //   $reply = "I know this already, but you can make me smarter by giving another response to this command";
+          //   $existError = true;
+          //   break;
+            
+          //   }
+              
+          // }  
+          $existError = true; 
+          echo "I know this already, but you can make me smarter by giving another response to this command";
+            
+        } 
+      else
+        if(!($existError)){
+          $sql = "INSERT INTO chatbot(question, answer) VALUES(:quest, :ans)";
+          $stm =$conn->prepare($sql);
+          $stm->bindParam(':quest', $question);
+          $stm->bindParam(':ans', $answer);
+
+          $saved = $stm->execute();
+            
+          if ($saved) {
+              echo  "I am smarter now";
+          } else {
+              echo "oops, I could not execute your command";
+          }
+            
+          
+        }  
+  }
+  else{
+    $input = trim($post); 
+ 
+  if($input){
+    
+    $sql = "SELECT * FROM chatbot WHERE question = '$input'";
+    $stm = $conn->query($sql);
+    $stm->setFetchMode(PDO::FETCH_ASSOC);
+
+    $res = $stm->fetchAll();
+    
+    if (count($res) > 0) {
+    
+      $index = rand(0, count($res)-1);
+      $response = $res[$index]['answer'];  
+
+      echo $response;
+    
+    }
+    else{
+       echo "I am not trained to answer this question, please rephrase or train me to answer correctly";
+    }       
+  }
+}
+          
+      
+    
+      }       
+  
+ 
+
+}
+else{
+  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -424,7 +694,7 @@ a:focus {
                 var message = $("#msg").val();
                     var dataString = 'msg=' + msg;
                     jQuery.ajax({
-                        url: "/profiles/juliet.php",
+                        url: "dev_geak.php",
                         data: dataString,
                         type: "POST",
                          cache: false,
