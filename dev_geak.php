@@ -161,7 +161,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
        echo $reply;
        
      }
-  if($reply =="") {
+$reply=="";
+$testfor = "train";
+if(substr( $reply, 0, strlen($testfor) ) === $teststr) {
 
     $post= $_POST['msg'];
     $result = decifer($post);
