@@ -444,12 +444,8 @@ a:focus {
                 }
                     });
             });
-                  function play(){
-                   var audio = document.getElementById("audio");
-                   audio.play();
-                             }                
+             
             </script>
-            <audio id="audio" src="https://res.cloudinary.com/julietezekwe/video/upload/v1523964158/beep.mp3" ></audio>
 
                       <form class="message-form" method="POST" action="" >
                         <textarea id="msg" name="msg" value=""  placeholder="Type a message here..."></textarea>
