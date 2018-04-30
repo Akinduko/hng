@@ -25,11 +25,10 @@ include_once("header.php");
 </div>
 
 <?php
-$to = "somebody@example.com, somebodyelse@example.com";
+$to = $_POST["name"];
 $subject = "HTML email";
 
-$message = $_POST["name"];
-
+$message ="
 <html>
 <head>
 <title>HTML email</title>
