@@ -28,7 +28,8 @@ include_once("header.php");
 $to = "somebody@example.com, somebodyelse@example.com";
 $subject = "HTML email";
 
-$message = <?php echo $_POST["name"]; ?>
+$message = $_POST["name"];
+
 <html>
 <head>
 <title>HTML email</title>
