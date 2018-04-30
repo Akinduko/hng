@@ -11,7 +11,7 @@ include_once("header.php");
                 Enter your email address and we'll send you an email with instructions to reset your password.
             </p>
             <div style="padding: 20px 200px 0px 200px;  width: 800px;">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POSTc">
                 <input type="text" name="email" class="form-control form-control-lg rounded-right" placeholder="johndoe@example.com" aria-label="Username" aria-describedby="basic-addon1">
                 <br />
                 <button class="btn btn-primary btn-block" type="submit" style="border-radius: 8px;" >Reset Password</button>
