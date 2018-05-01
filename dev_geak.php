@@ -143,7 +143,7 @@ function assistant($string)
       return $reply;     
     }
     else {
-        $reply = "To add new states==> train: question # answer # password";
+        $reply = "To add new states==> 'train:Question#answer#password'";
         return $reply;
     }
 }
