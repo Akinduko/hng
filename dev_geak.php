@@ -589,39 +589,51 @@ a:focus {
                     <div class="message-form-container">
 
                       <script type="text/javascript">
-   var outputArea = $("#chat-output");
 
-    $('#msg').keypress(
+                                  $(document).ready(function(){
+               $('#msg').keypress(
+                function(e){
+                    if (e.keyCode == 13) {
+                        e.preventDefault();
+                        var msg = $(this).val();
+                  $(this).val('');
+                        if(msg !== '' )
+                  $('<div class="messages clear"><div class="user"><div class="message-container"><div class="message"><p>'+msg+'</p></div><span class="delivered"><?php
+            echo "" . date("h:i:a");
+            ?></span></div></div><!-- /.user --></div>').insertBefore('.push');
+            $('.chatbox-messages').scrollTop($('.chatbox-messages')[0].scrollHeight);
 
-      function(e) {
+                  formSubmit();
 
-        e.preventDefault();
+                    }
 
-        var message = $("#user-input").val();
+                function formSubmit(){
+                var message = $("#msg").val();
+                    var dataString = 'msg=' + msg;
+                    $.ajax({
+                        url: "dev_geak.php",
+                        data: dataString,
+                        type: "POST",
+                         cache: false,
+                             success: function(response) {
+                              var result = $($.parseHTML(response)).find("#result").text();
+            setTimeout(function(){
+                     $(' <div class="messages clear"><span class="avatar"><img src="https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/LJ/HLJ02/HLJ02?wid=572&hei=572&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1503083822390"/></span><div class="sender"><div class="message-container"><div class="message"><p>'+result+'</p></div><span class="delivered"><?php
+            echo "" . date("h:i:a");
+            ?></span></div>').insertBefore('.push');
+                      $('.chatbox-messages').scrollTop($('.chatbox-messages')[0].scrollHeight);
+                  
+                  play();
+                },  1000);
 
-        outputArea.append(`<div class='bot-message'><div><div class='message'>${message}<\/div><\/div><\/div>`);
-
-
-        $.ajax({
-            url: 'dev_geaks',
-            type: 'POST',
-            data:  'user-input=' + message,
-            success: function(response) {
-                var result = $($.parseHTML(response)).find("#result").text();
-                setTimeout(function() {
-                    outputArea.append("<div class='user-message'<div><div><div class='message'>" + result + "<\/div><\/div><\/div>");
-                    $('#chat-output').animate({
-                        scrollTop: $('#chat-output').get(0).scrollHeight
-                    }, 1500);
-                }, 250);
-            }
-        });
-
-
-        $("#user-input").val("");
-
-    });
-    //]]>
+                  },
+                        error: function (){}
+                    });
+                return true;
+                }
+                    });
+            });
+             
             </script>
 
                       <form class="message-form" method="POST" action="" >
