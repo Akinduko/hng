@@ -682,7 +682,7 @@ a:focus {
                          cache: false,
                              success: function(response) {
             setTimeout(function(){
-                     $('').insertBefore('.push');
+                     $(response).insertBefore('.push');
                   
                   play();
                 },  1000);
