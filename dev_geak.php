@@ -11,7 +11,7 @@ $img = $my_data['image_filename'];
 $username =$my_data['username'];
 
 function decifer($string){
-  
+
   if (strpos($string, ":") !== false)
   {
     $field = explode (":", $string, 2);
@@ -150,24 +150,29 @@ function assistant($string)
 
 $existError =false;
 $reply = "";//process starts
+
 if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
 
-  if ($_POST['msg'] == 'Help') {
-    $reply = 'These is a sample format of a question <p>what is the capital of Lagos</br>For compound names separate with a dash </br>e.g what is the capital of Ado-Ekiti</p>';
-    echo $reply;
+  if ($_POST['msg'] == 'help') {
+      help();
   } 
-      if($reply==""){
+  if($reply==""){
        $reply = assistant($_POST['msg']);
        echo $reply;
        
      }
-$reply=="";
-$testfor = "train";
-if(substr( $reply, 0, strlen($testfor) ) === "train") {
+    $data  = $_POST[ 'msg' ];
+    $temp  = explode( ':', $data );
+    $temp2 = preg_replace( '/\s+/', '', $temp[ 0 ] );
+  if( $temp2  === "train") {
+    train( $temp[ 1 ] );
+    
+      }       
+  if($reply =="") {
 
     $post= $_POST['msg'];
     $result = decifer($post);
-    if($result){
+     if($result){
       $question=$result[0]; 
       $answer= $result[1];
       $sql = "SELECT * FROM chatbot WHERE question = '$question' And answer = '$answer'";
@@ -177,27 +182,14 @@ if(substr( $reply, 0, strlen($testfor) ) === "train") {
       $result = $stm->fetchAll();
         
         if (count(($result))> 0) {
-              
-          // while($result) {
-          //   $strippedQ = strtolower(preg_replace('/\s+/', '', $question));
-          //   $strippedA = strtolower(preg_replace('/\s+/', '', $answer));
-          //   $strippedRowQ = strtolower(preg_replace('/\s+/', '', $result['question']));
-          //   $strippedRowA = strtolower(preg_replace('/\s+/', '', $result['answer']));
-          //   if(($strippedRowQ == $strippedQ) && ($strippedRowA == $strippedA)){
-          //   $reply = "I know this already, but you can make me smarter by giving another response to this command";
-          //   $existError = true;
-          //   break;
-            
-          //   }
-              
-          // }  
           $existError = true; 
           echo "I know this already, but you can make me smarter by giving another response to this command";
             
         } 
       else
         if(!($existError)){
-          $sql = "INSERT INTO chatbot(question, answer) VALUES(:quest, :ans)";
+          $sql = "INSERT INTO chatbot(question, answer)
+          VALUES(:quest, :ans)";
           $stm =$conn->prepare($sql);
           $stm->bindParam(':quest', $question);
           $stm->bindParam(':ans', $answer);
@@ -205,9 +197,9 @@ if(substr( $reply, 0, strlen($testfor) ) === "train") {
           $saved = $stm->execute();
             
           if ($saved) {
-              echo  "I am smarter now";
+              echo  "Thanks to you, I am smarter now";
           } else {
-              echo "oops, I could not execute your command";
+              echo "Error: could not understand";
           }
             
           
@@ -233,7 +225,7 @@ if(substr( $reply, 0, strlen($testfor) ) === "train") {
     
     }
     else{
-       echo "";
+       echo "I did'nt get that, please rephrase or try again later";
     }       
   }
 }
@@ -245,10 +237,9 @@ if(substr( $reply, 0, strlen($testfor) ) === "train") {
  
 
 }
-    else{
-       echo "";
-    }  
-?>
+else{
+  ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -718,3 +709,44 @@ a:focus {
     </div>
 
 </html>
+<?php 
+}
+function help( ) {
+    echo 'These is a sample format of a question <p>what is the capital of Lagos</br>For compound names separate with a dash </br>e.g what is the capital of Ado-Ekiti</p>';
+}
+function train( $input ) {
+    $input    = explode( '#', $input );
+    $question = trim( $input[ 0 ] );
+    $answer   = trim( $input[ 1 ] );
+    $password = trim( $input[ 2 ] );
+    if ( $password == 'password' ) {
+        $sql = 'SELECT * FROM chatbot WHERE question = "' . $question . '" and answer = "' . $answer . '" LIMIT 1';
+        $q   = $GLOBALS[ 'conn' ]->query( $sql );
+        $q->setFetchMode( PDO::FETCH_ASSOC );
+        $data = $q->fetch();
+        if ( empty( $data ) ) {
+            $training_data = array(
+                 ':question' => $question,
+                ':answer' => $answer 
+            );
+            $sql           = 'INSERT INTO chatbot ( question, answer)
+              VALUES (
+                  :question,
+                  :answer
+              );';
+            try {
+                $q = $GLOBALS[ 'conn' ]->prepare( $sql );
+                if ( $q->execute( $training_data ) == true ) {
+                    echo "<div id='result'>Training Successful!</div>";
+                }
+            }
+            catch ( PDOException $e ) {
+                throw $e;
+            }
+        } else {
+            echo "<div id='result'>Teach me something new!</div>";
+        }
+    } else {
+        echo "<div id='result'>Invalid Password, Try Again!</div>";
+    }
+}?>
