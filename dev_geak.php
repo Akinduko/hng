@@ -124,7 +124,7 @@ function assistant($string)
       return $reply;     
     }
     else {
-        $reply = "Tips: Type 'Help' to see FAQ.</br> To add new states ==> 'train:Question#answer#password'";
+        $reply = null ;
         return $reply;
     }
 }
@@ -140,7 +140,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   if($reply==""){
        $reply = assistant($_POST['msg']);
 
-       if ($reply == ""){
+       if ($reply == null ){
             $post= $_POST['msg'];
             $input = trim($post); 
  
@@ -161,7 +161,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                   
                   }
                   else{
-                     echo "";
+                     echo "Tips: Type 'Help' to see FAQ.</br> To add new states ==> 'train:Question#answer#password'";
+      
                   }       
                 }
 
