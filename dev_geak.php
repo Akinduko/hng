@@ -625,7 +625,7 @@ a:focus {
                         scrollTop: $('chatbox-messages').get(0).scrollHeight
                     }, 1500);
                   
-                  play();
+        
                 },  1000);
 
                   },
