@@ -591,7 +591,9 @@ a:focus {
                       <script type="text/javascript">
    var outputArea = $("#chat-output");
 
-    $("#user-input-form").on("submit", function(e) {
+    $('#msg').keypress(
+
+      function(e) {
 
         e.preventDefault();
 
