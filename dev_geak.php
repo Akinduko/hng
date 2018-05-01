@@ -10,25 +10,6 @@ $name = $my_data['name'];
 $img = $my_data['image_filename'];
 $username =$my_data['username'];
 
-function decifer($string){
-
-  if (strpos($string, ":") !== false)
-  {
-    $field = explode (":", $string, 2);
-    $key = $field[0];
-    $key = strtolower(preg_replace('/\s+/', '', $key));
-  if(($key == "train")){
-     $password ="password";
-     $trainer =$field[1];
-     $result = explode ("#", $trainer);
-  if($result[2] && $result[2] == $password){
-    echo"<br>Training mode<br>";
-    return $result;
-  } 
-  else echo "opssss!!! Looks like you are trying to train me without permission";   
-  }
-   }
-}
 
 
 function assistant($string)
@@ -158,7 +139,36 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   } 
   if($reply==""){
        $reply = assistant($_POST['msg']);
-       echo $reply;
+
+       if ($reply == ""){
+            $post= $_POST['msg'];
+            $input = trim($post); 
+ 
+            if($input){
+    
+                  $sql = "SELECT * FROM chatbot WHERE question = '$input'";
+                  $stm = $conn->query($sql);
+                  $stm->setFetchMode(PDO::FETCH_ASSOC);
+
+                  $res = $stm->fetchAll();
+                  
+                  if (count($res) > 0) {
+                  
+                    $index = rand(0, count($res)-1);
+                    $response = $res[$index]['answer'];  
+
+                    echo $response;
+                  
+                  }
+                  else{
+                     echo "";
+                  }       
+                }
+
+       }
+       else {
+       echo $reply; 
+       }
        
      }
     $data  = $_POST[ 'msg' ];
@@ -168,73 +178,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     train( $temp[ 1 ] );
     
       }       
-  if($reply =="") {
-
-    $post= $_POST['msg'];
-    $result = decifer($post);
-     if($result){
-      $question=$result[0]; 
-      $answer= $result[1];
-      $sql = "SELECT * FROM chatbot WHERE question = '$question' And answer = '$answer'";
-      $stm = $conn->query($sql);
-      $stm->setFetchMode(PDO::FETCH_ASSOC);
-
-      $result = $stm->fetchAll();
-        
-        if (count(($result))> 0) {
-          $existError = true; 
-          echo "I know this already, but you can make me smarter by giving another response to this command";
-            
-        } 
-      else
-        if(!($existError)){
-          $sql = "INSERT INTO chatbot(question, answer)
-          VALUES(:quest, :ans)";
-          $stm =$conn->prepare($sql);
-          $stm->bindParam(':quest', $question);
-          $stm->bindParam(':ans', $answer);
-
-          $saved = $stm->execute();
-            
-          if ($saved) {
-              echo  "Thanks to you, I am smarter now";
-          } else {
-              echo "Error: could not understand";
-          }
-            
-          
-        }  
-  }
-  else{
-    $input = trim($post); 
- 
-  if($input){
-    
-    $sql = "SELECT * FROM chatbot WHERE question = '$input'";
-    $stm = $conn->query($sql);
-    $stm->setFetchMode(PDO::FETCH_ASSOC);
-
-    $res = $stm->fetchAll();
-    
-    if (count($res) > 0) {
-    
-      $index = rand(0, count($res)-1);
-      $response = $res[$index]['answer'];  
-
-      echo $response;
-    
-    }
-    else{
-       echo "I did'nt get that, please rephrase or try again later";
-    }       
-  }
-}
-          
-      
-    
-      }       
-  
- 
 
 }
 else{
@@ -628,7 +571,7 @@ a:focus {
                 </script>
                     <div class="chatbox-messages" >
                       <div class="messages clear"><span class="avatar"><img src="https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/LJ/HLJ02/HLJ02?wid=572&hei=572&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1503083822390" alt="Support" /></span><div class="sender"><div class="message-container"><div class="message"><p>
-                      Welcome to Dev_GB's profile page <i class="em em-sunglasses"></i> You can check State capitals of Any state by just asking. <i class="em em-smiley"></i></p>
+                      Welcome to Dev_GB's profile page <i class="em em-sunglasses"></i> You can check State capitals by just asking. <i class="em em-smiley"></i></p>
                               <p>Tips: Type "Help' to see FAQ.<br>To add new states ==> 'train:Question#answer#password'</p>
                               </div><span class="delivered">
                                 <?php echo "" . date("h:i:a");?>
