@@ -143,7 +143,7 @@ function assistant($string)
       return $reply;     
     }
     else {
-        $reply = "To add new states ==> 'train:Question#answer#password'";
+        $reply = "Tips: Type 'Help' to see FAQ.</br> To add new states ==> 'train:Question#answer#password'";
         return $reply;
     }
 }
@@ -587,7 +587,7 @@ a:focus {
                           </span>
                           <span class="info">
                             <br/>
-                            “My name is Akinduko Olugbenga.<br/><br/>I enjoy meeting new people and finding ways to help them have an uplifting experience.<br/><br/>I have had a variety of Software development opportunities, through which I was able to solve real life problems.<br/><br/>Would you like to reach me? Drop a message” 
+                            “My name is Akinduko Olugbenga.<br/><br/>I enjoy meeting new people and finding ways to help them have an uplifting experience.<br/><br/>I have had a variety of Software development opportunities, through which I was able to solve real life problems.<br/>” 
                         </span>
                         </li>
                       </ul><!-- /.contact-list -->
