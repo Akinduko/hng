@@ -143,7 +143,7 @@ function assistant($string)
       return $reply;     
     }
     else {
-        $reply = "Please enter a valid question";
+        $reply = "To add new states==> train: question # answer # password";
         return $reply;
     }
 }
