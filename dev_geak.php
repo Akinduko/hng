@@ -601,6 +601,7 @@ a:focus {
                   $('<div class="messages clear"><div class="user"><div class="message-container"><div class="message"><p>'+msg+'</p></div><span class="delivered"><?php
             echo "" . date("h:i:a");
             ?></span></div></div><!-- /.user --></div>').insertBefore('.push');
+                $('.chatbox-messages').scrollTop($('.chatbox-messages')[0].scrollHeight);
                   
 
                   formSubmit();
@@ -620,6 +621,7 @@ a:focus {
                      $(' <div class="messages clear"><span class="avatar"><img src="https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/LJ/HLJ02/HLJ02?wid=572&hei=572&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1503083822390"/></span><div class="sender"><div class="message-container"><div class="message"><p>'+response+'</p></div><span class="delivered"><?php
             echo "" . date("h:i:a");
             ?></span></div>').insertBefore('.push');
+                      $('.chatbox-messages').scrollTop($('.chatbox-messages')[0].scrollHeight);
                   
                   play();
                 },  1000);
@@ -644,6 +646,12 @@ a:focus {
                   </div><!-- /.chatbox -->
 
 
+
+                </div><!-- /.content -->
+
+              </div><!-- /.wrapper -->
+
+
         </div>
       </div>
       <!-- /.row -->
@@ -651,6 +659,30 @@ a:focus {
     
 
     </div>
+        <!-- Custom scripts for this template -->
+    <script src="hng.min.js"></script>
+  
+</div><!-- /ko --><div data-bind="_ojNodeStorage_" style="display: none;" class="oj-subtree-hidden">
+        </div></oj-module>
+      </div>
+      </div>
+ 
+</body>
+<!-- end jet -->
+
+
+  <body>
+
+  
+
+        
+
+      
+   
+          
+            
+
+  </body>
 
 </html>
 <?php 
