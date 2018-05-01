@@ -16,131 +16,131 @@ function assistant($string)
  {  
     $reply = "";
     
-    if ($string == 'what is the capital of Lagos') {
+    if ($string == 'What is the capital of Lagos?') {
       $reply =var_export('The capital of Lagos is Ikeja');
       return $reply;
         
     }
-    elseif ($string == 'what is the capital of Ogun') {
+    elseif ($string == 'What is the capital of Ogun?') {
       $reply =var_export('The capital of Ogun is Abeokuta');
       return $reply;
         
     }
-    elseif ($string == 'what is the capital of Oyo') {
+    elseif ($string == 'What is the capital of Oyo?') {
       $reply =var_export('The capital of Oyo is Ibadan');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Ondo') {
+    elseif ($string == 'What is the capital of Ondo?') {
       $reply =var_export('The capital of Ondo is Akure');
       return $reply;     
     }
-   elseif ($string == 'what is the capital of Imo') {
+   elseif ($string == 'What is the capital of Imo?') {
        
       $reply =var_export('The capital of Imo is Owerri');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Akwa-Ibom') { 
+    elseif ($string == 'What is the capital of Akwa-Ibom?') { 
       $reply =var_export('The capital of Akwa-Ibom is Uyo');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Adamawa') { 
+    elseif ($string == 'What is the capital of Adamawa?') { 
       $reply =var_export('The capital of Adamawa is Yola');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Ekiti') { 
+    elseif ($string == 'What is the capital of Ekiti?') { 
       $reply =var_export('The capital of Ekiti is Ado-Ekiti');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Bauchi') { 
+    elseif ($string == 'What is the capital of Bauchi?') { 
       $reply =var_export('The capital of Bauchi is Bauchi');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Bayelsa') { 
+    elseif ($string == 'What is the capital of Bayelsa?') { 
       $reply =var_export('The capital of Bayelsa is Yenagoa');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Abia') { 
+    elseif ($string == 'What is the capital of Abia?') { 
       $reply =var_export('The capital of Abia is Umuahia');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Anambra') { 
+    elseif ($string == 'What is the capital of Anambra?') { 
       $reply =var_export('The capital of Anambra is Awka');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Borno') { 
+    elseif ($string == 'What is the capital of Borno?') { 
       $reply =var_export('The capital of Borno is Maiduguiri');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Cross-River') { 
+    elseif ($string == 'What is the capital of Cross-River?') { 
       $reply =var_export('The capital of Cross-River is Calabar');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Delta') { 
+    elseif ($string == 'What is the capital of Delta?') { 
       $reply =var_export('The capital of Delta is Asaba');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Benue') { 
+    elseif ($string == 'What is the capital of Benue?') { 
       $reply =var_export('The capital of Benue is Makurdi');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Edo') { 
+    elseif ($string == 'What is the capital of Edo?') { 
       $reply =var_export('The capital of Edo is Benin');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Enugu') { 
+    elseif ($string == 'What is the capital of Enugu?') { 
       $reply =var_export('The capital of Enugu is Enugu');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Kebbi') { 
+    elseif ($string == 'What is the capital of Kebbi?') { 
       $reply =var_export('The capital of Kebbi is Birnin Kebbi');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Katsina') { 
+    elseif ($string == 'What is the capital of Katsina?') { 
       $reply =var_export('The capital of Katsina is Katsina');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Kano') { 
-      $reply =var_export('The capital of Kano is Kano');
+    elseif ($string == 'What is the capital of Kano?') { 
+      $reply =var_export('The capital of Kano is Kano?');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Kaduna') { 
+    elseif ($string == 'What is the capital of Kaduna?') { 
       $reply =var_export('The capital of Kaduna is Kaduna');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Jigawa') { 
+    elseif ($string == 'What is the capital of Jigawa?') { 
       $reply =var_export('The capital of Dutse is Dutse');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Kwara') { 
+    elseif ($string == 'What is the capital of Kwara?') { 
       $reply =var_export('The capital of Kwara is Ilorin');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Gombe') { 
+    elseif ($string == 'What is the capital of Gombe?') { 
       $reply =var_export('The capital of Gombe is Gombe');
       return $reply;     
     }
-    elseif ($string == 'what is the capital of Nasarawa') { 
+    elseif ($string == 'What is the capital of Nasarawa?') { 
       $reply =var_export('The capital of Nasarawa is Lafia');
       return $reply;     
     }
     else {
-        $reply = null ;
+        $reply = 'Non' ;
         return $reply;
     }
 }
 
 $existError =false;
-$reply = "";//process starts
+$check = "";//process starts
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
 
   if ($_POST['msg'] == 'help') {
       help();
   } 
-  if($reply==""){
+  if($check==""){
        $reply = assistant($_POST['msg']);
 
-       if ($reply == null ){
+       if ($reply === 'Non' ){
             $post= $_POST['msg'];
             $input = trim($post); 
  
@@ -656,7 +656,7 @@ a:focus {
 <?php 
 }
 function help( ) {
-    echo 'These is a sample format of a question <p>what is the capital of Lagos</br>For compound names separate with a dash </br>e.g what is the capital of Ado-Ekiti</p>';
+    echo 'These is a sample format of a question <p>What is the capital of Lagos</br>For compound names separate with a dash </br>e.g What is the capital of Ado-Ekiti</p>';
 }
 function train( $input ) {
     $input    = explode( '#', $input );
