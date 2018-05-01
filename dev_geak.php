@@ -134,7 +134,7 @@ $check = "";//process starts
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
 
-  if ($_POST['msg'] == 'help') {
+  if ($_POST['msg'] == 'Help') {
       help();
   } 
   if($check==""){
@@ -655,7 +655,7 @@ a:focus {
 </html>
 <?php 
 }
-function help( ) {
+function help() {
     echo 'These is a sample format of a question <p>What is the capital of Lagos</br>For compound names separate with a dash </br>e.g What is the capital of Ado-Ekiti</p>';
 }
 function train( $input ) {
