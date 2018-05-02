@@ -161,7 +161,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                   
                   }
                   else{
-                     echo "<div id='result'>Tips: Type 'Help' to see FAQ.</br> To add new states ==> 'train:Question#answer#password'</div>";
+                     echo "<div id='tag'>Tips: Type 'Help' to see FAQ.</br> To add new states ==> 'train:Question#answer#password'</div>";
 
       
                   }       
@@ -617,7 +617,7 @@ a:focus {
                         type: "POST",
                          cache: false,
                              success: function(response) {
-                              var result = $("#result").html(response).text();
+                              var result = $("#tag").html(response).text();
             setTimeout(function(){
                      $(' <div class="messages clear"><span class="avatar"><img src="https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/LJ/HLJ02/HLJ02?wid=572&hei=572&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1503083822390"/></span><div class="sender"><div class="message-container"><div class="message"><p>'+result+'</p></div><span class="delivered"><?php
             echo "" . date("h:i:a");
@@ -679,7 +679,7 @@ a:focus {
 <?php 
 }
 function help() {
-    echo "<div id='result'>These is a sample format of a question <p>What is the capital of Lagos</br>For compound names separate with a dash </br>e.g What is the capital of Ado-Ekiti</div>";
+    echo "<div id='tag'>These is a sample format of a question <p>What is the capital of Lagos</br>For compound names separate with a dash </br>e.g What is the capital of Ado-Ekiti</div>";
 }
 function train( $input ) {
     $input    = explode( '#', $input );
@@ -704,7 +704,7 @@ function train( $input ) {
             try {
                 $q = $GLOBALS[ 'conn' ]->prepare( $sql );
                 if ( $q->execute( $training_data ) == true ) {
-                    echo "<div id='result'>Training Successful!</div>";
+                    echo "<div id='tag'>Training Successful!</div>";
 
                 }
             }
@@ -712,10 +712,10 @@ function train( $input ) {
                 throw $e;
             }
         } else {
-            echo "<div id='result'>Teach me something new!</div>";
+            echo "<div id='tag'>Teach me something new!</div>";
         }
     } else {
-        echo "<div id='result'>Invalid Password, Try Again!</div>";
+        echo "<div id='tag'>Invalid Password, Try Again!</div>";
     }
 
 }
