@@ -615,8 +615,8 @@ a:focus {
                     $.ajax({
                         url: "dev_geak.php",
                         data: dataString,
-                        type: "POST",
-                         cache: false,
+                        type: "POST"
+       
                              success: function(response) {
                               var result = $($.parseHTML(response)).find("#result").text();
             setTimeout(function(){
