@@ -609,15 +609,16 @@ a:focus {
                     }
 
                 function formSubmit(){
+
                 var message = $("#msg").val();
-                    var dataString = 'msg=' + msg;
+                var dataString = 'msg=' + msg;
                     $.ajax({
                         url: "dev_geak.php",
                         data: dataString,
                         type: "POST",
                          cache: false,
                              success: function(response) {
-                              var result = $("#tag").html(response).text();
+                              var result = $($.parseHTML(response)).find("#result").text();
             setTimeout(function(){
                      $(' <div class="messages clear"><span class="avatar"><img src="https://store.storeimages.cdn-apple.com/4974/as-images.apple.com/is/image/AppleInc/aos/published/images/H/LJ/HLJ02/HLJ02?wid=572&hei=572&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1503083822390"/></span><div class="sender"><div class="message-container"><div class="message"><p>'+result+'</p></div><span class="delivered"><?php
             echo "" . date("h:i:a");
@@ -627,16 +628,7 @@ a:focus {
                     }, 1500);
                   
         
-                },  1000);
-
-                  },
-                        error: function (){}
-                    });
-                return true;
-                } 
-                    });
-            });
-             
+                },  250);
             </script>
 
                       <form class="message-form" method="POST" action="" >
