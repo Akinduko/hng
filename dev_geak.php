@@ -1,6 +1,4 @@
 <?php
-</br>
-
 require 'db.php';
 $query = $conn->query("SELECT * FROM secret_word");
 $result = $query->fetch(PDO::FETCH_ASSOC);
