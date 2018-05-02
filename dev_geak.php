@@ -629,6 +629,13 @@ a:focus {
                   
         
                 },  250);
+                              },
+                        error: function (){}
+                    });
+                return true;
+                } 
+                    });
+            });
             </script>
 
                       <form class="message-form" method="POST" action="" >
